@@ -308,13 +308,22 @@
 
 
 .Login-button{
-   background-color: rgb(71, 0, 138) !important;
+   background-color: rgba(0, 0, 0, 0.5) !important;
    border-radius: 100px !important;
    font-family: monospace !important;
    font-size: 1.3rem !important;
    font-weight: bolder !important;
    height: 60px;
   }
+
+  .Login-button:hover, .Login-button:active{
+    background-color: rgba(0, 0, 0, 1) !important;
+   }  
+
+.Login-button-Invalid, .Login-button-Invalid:hover {
+  background-color: rgba(255, 0, 0, 0.6) !important;
+}
+
 
   .MuiLoadingButton-loadingIndicator{
     color: white !important;
@@ -636,4 +645,14 @@
     font-size: 25px !important;
   }
 
+}
+
+
+/*------------------------------------------Invalid---------------------------------------------------------------------------------*/
+
+
+.InvalidEmail{
+    color: red;
+    font-size: 16px !important;
+    margin-left: 25px !important;
 }

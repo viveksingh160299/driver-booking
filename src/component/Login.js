@@ -22,6 +22,8 @@ const [values, setValues] = React.useState({
     password: '',
     showPassword: false,
     submit:true,
+    InvalidEmail: false,
+    InvalidPassword: false,
 });
 
 const handleChange = (prop) => (event) => {
@@ -40,10 +42,34 @@ const handleMouseDownPassword = (event) => {
 };
 
 const handleSubmit = () => {
-  setValues({
-    ...values,
-    submit: !values.submit,
-  });
+
+  let regex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+
+  if(!regex.test(values.email))
+  {
+      setValues({
+      ...values,
+      InvalidEmail: true,
+      });
+  }
+
+  else if(values.password.length<8)
+  {
+      setValues({
+      ...values,
+      InvalidPassword: true,
+      });
+  }
+  
+  //Call get post request here
+  else{
+      setValues({
+      ...values,
+      submit: !values.submit,
+      InvalidEmail: false,
+      InvalidPassword: false,
+      });
+   }
 };
 
 const inputProps = {
@@ -93,6 +119,16 @@ const inputProps = {
                         />
                      </FormControl>
                   </Grid>
+
+                  {values.InvalidEmail || values.InvalidPassword  ? 
+                      <Grid container>
+                        <Grid item xs={2} /> 
+                        <Grid item xs={10}>
+                          <Typography variant="caption" display="block" className="InvalidEmail">
+                             Please enter valid Email Address and Password!
+                          </Typography> 
+                        </Grid>
+                      </Grid>:""}  
                 
                   <Grid item xs={6} />
                   <Grid item xs={6}>
@@ -104,7 +140,7 @@ const inputProps = {
                   <Grid item xs={3} />
                   <Grid alignItems="center" justifyContent="center" container xs={6} style={inputProps}>
                   <Grid item xs={12} onClick={handleSubmit}>
-                       {values.submit ? <MyLoginButton /> : <MyLoadButton />}
+                       {values.submit ? <MyLoginButton values={values}/> : <MyLoadButton />}
                   </Grid>
                   </Grid>
                   <Grid item xs={3} />
@@ -116,10 +152,10 @@ const inputProps = {
 };
 
 
-function MyLoginButton(){
+function MyLoginButton(props){
      
      return (
-              <Button variant="contained"  className="Login-button" fullWidth style={{textTransform: 'none'}}>
+              <Button variant="contained" className={props.values.InvalidEmail || props.values.InvalidPassword?"Login-button-Invalid Login-button":"Login-button"} fullWidth style={{textTransform: 'none'}}>
                         Login
               </Button>
      ); 
