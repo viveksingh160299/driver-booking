@@ -83,7 +83,7 @@ const inputProps = {
 
               <Grid container spacing={4} className="frosted-container">
                   
-                  <Grid item xs={9}>
+                  <Grid item xs={12} lg={9}>
                      <TextField
                       label="Email"
                       id="outlined-start-adornment"
@@ -94,7 +94,7 @@ const inputProps = {
                      />
                   </Grid>
                  
-                  <Grid item xs={9}>
+                  <Grid item xs={12} lg={9}>
                      <FormControl  variant="outlined" fullWidth className="frosted-item">
                         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                         <OutlinedInput

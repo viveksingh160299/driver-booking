@@ -11,6 +11,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import { Button } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
+import { Typography } from '@mui/material';
 
 
 export function Signup(){
@@ -23,6 +24,9 @@ const [values, setValues] = React.useState({
     submit: true,
     reenterpassword: '',
     showReEnterNewPassword: false,
+    InvalidEmail: false,
+    InvalidPassword: false,
+    IsPasswordEqual:true,
 });
 
 const handleChange = (prop) => (event) => {
@@ -52,10 +56,42 @@ const handleClickShowReEnterNewPassword = () => {
   };
 
 const handleSubmit = () => {
-  setValues({
-    ...values,
-    submit: !values.submit,
-  });
+  let regex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+
+  if(!regex.test(values.email))
+  {
+      setValues({
+      ...values,
+      InvalidEmail: true,
+      });
+  }
+
+  else if(values.newpassword.length<8)
+  {
+      setValues({
+      ...values,
+      InvalidPassword: true,
+      });
+  }
+
+  else if(values.newpassword.localeCompare(values.reenterpassword) !==0)
+  {
+      setValues({
+      ...values,
+      IsPasswordEqual:false,
+      });
+  }
+  
+  //Call get post request here
+  else{
+      setValues({
+      ...values,
+      submit: !values.submit,
+      InvalidEmail: false,
+      InvalidPassword: false,
+      IsPasswordEqual:true,
+      });
+   }
 };
 
 const inputProps = {
@@ -70,7 +106,7 @@ const inputProps = {
 
               <Grid container spacing={4} className="frosted-container">
                   
-                  <Grid item xs={9}>
+                  <Grid item xs={12} lg={9}>
                      <TextField
                       label="Email"
                       id="outlined-start-adornment"
@@ -81,7 +117,7 @@ const inputProps = {
                      />
                   </Grid>
                  
-                  <Grid item xs={9}>
+                  <Grid item xs={12} lg={9}>
                      <FormControl  variant="outlined" fullWidth className="frosted-item">
                         <InputLabel htmlFor="outlined-adornment-password">New Password</InputLabel>
                         <OutlinedInput
@@ -108,9 +144,9 @@ const inputProps = {
                   </Grid>
                    
 
-                  <Grid item xs={9}>
+                  <Grid item xs={12} lg={9}>
                      <FormControl  variant="outlined" fullWidth className="frosted-item">
-                        <InputLabel htmlFor="outlined-adornment-password">Re-Enter New Password</InputLabel>
+                        <InputLabel htmlFor="outlined-adornment-password">Re-Enter Password</InputLabel>
                         <OutlinedInput
                         id="outlined-adornment-password"
                         type={values.showReEnterNewPassword ? 'text' : 'password'}
@@ -133,12 +169,35 @@ const inputProps = {
                         />
                      </FormControl>
                   </Grid> 
-                  <Grid item xs={3} />
+
+                  <Grid item ls={3} className='leftreg'/>
+
+                  {values.InvalidEmail || values.InvalidPassword ? 
+                      <Grid container>
+                        <Grid item xs={2} /> 
+                        <Grid item xs={10}>
+                          <Typography variant="caption" display="block" className="InvalidEmailRegister">
+                             Please enter valid Email Address and Password!
+                          </Typography> 
+                        </Grid>
+                      </Grid>:""}  
+
+                  {!values.IsPasswordEqual ? 
+                      <Grid container>
+                        <Grid item xs={2} /> 
+                        <Grid item xs={10}>
+                          <Typography variant="caption" display="block" className="InvalidEmailRegister">
+                             New Password and Re Entered Password is not same!
+                          </Typography> 
+                        </Grid>
+                      </Grid>:""}      
+
+                  
 
                   <Grid item xs={3} />
                   <Grid alignItems="center" justifyContent="center" container xs={6} style={inputProps}>
                   <Grid item xs={12} onClick={handleSubmit}>
-                       {values.submit ? <MySignupButton /> : <MyLoadButton />}
+                       {values.submit ? <MySignupButton values={values} /> : <MyLoadButton />}
                   </Grid>
                   </Grid>
                   <Grid item xs={3} />
@@ -149,10 +208,10 @@ const inputProps = {
 };
 
 
-function MySignupButton(){
+function MySignupButton(props){
      
      return (
-              <Button variant="contained"  className="Login-button" fullWidth style={{textTransform: 'none'}}>
+              <Button variant="contained"  className={!props.values.IsPasswordEqual || props.values.InvalidEmail || props.values.InvalidPassword?"Login-button-Invalid Login-button ":"Login-button"} fullWidth style={{textTransform: 'none'}}>
                         Register
               </Button>
      ); 

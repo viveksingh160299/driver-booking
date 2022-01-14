@@ -55,9 +55,7 @@
         width: 55vw;
       }
 
-    .frosted-item{
-        margin-left: 5vw !important;
-      }       
+          
   }
 
   @media screen and (max-width: 900px){
@@ -73,9 +71,7 @@
         width: 75vw;
       }
 
-    .frosted-item{
-        margin-left: 5vw !important;
-      } 
+     
   }
 
 
@@ -91,8 +87,14 @@
   
   margin-top: -30px !important;
   margin-bottom: 16px !important;
-  margin-left: 5vw !important;
+  margin-left: -15px !important;
  } 
+
+ @media screen and (min-width: 1200px){
+  .frosted-item{
+    margin-left: 5vw !important;
+   } 
+} 
 
 @media screen and (max-height: 800px){
   .frosted-container{
@@ -655,4 +657,35 @@
     color: red;
     font-size: 16px !important;
     margin-left: 25px !important;
+}
+
+.InvalidEmailRegister{
+  color: red;
+  font-size: 16px !important;
+  margin-left: 25px !important;
+}
+
+@media screen and (max-width:1200px) {
+  .InvalidEmail{
+    font-size: 10px !important;
+    margin-left: 0px !important;
+}
+
+.InvalidEmailRegister{
+  font-size: 10px !important;
+  margin-left: 0px !important;
+}
+
+.leftreg{
+  margin-left:-32px !important;
+}
+
+.Forgot{
+  font-size: 10px !important;
+}
+
+.css-11lq3yg-MuiGrid-root{
+  margin-left: -10px !important;
+}
+
 }
