@@ -146,7 +146,7 @@ const inputProps = {
 
                   <Grid item xs={12} lg={9}>
                      <FormControl  variant="outlined" fullWidth className="frosted-item">
-                        <InputLabel htmlFor="outlined-adornment-password">Re-Enter Password</InputLabel>
+                        <InputLabel htmlFor="outlined-adornment-password">Confirm Password</InputLabel>
                         <OutlinedInput
                         id="outlined-adornment-password"
                         type={values.showReEnterNewPassword ? 'text' : 'password'}
@@ -187,7 +187,7 @@ const inputProps = {
                         <Grid item xs={2} /> 
                         <Grid item xs={10}>
                           <Typography variant="caption" display="block" className="InvalidEmailRegister">
-                             New Password and Re Entered Password is not same!
+                             New Password and Confirm Password is not same!
                           </Typography> 
                         </Grid>
                       </Grid>:""}      
