@@ -18,12 +18,16 @@ export function Signup(){
 
   
 const [values, setValues] = React.useState({
+    name: '',
+    mob_number: '',
     email: '',
     newpassword: '',
     showNewPassword: false,
     submit: true,
     reenterpassword: '',
     showReEnterNewPassword: false,
+    InvalidName: false,
+    InvalidMobNumber: false,
     InvalidEmail: false,
     InvalidPassword: false,
     IsPasswordEqual:true,
@@ -57,12 +61,44 @@ const handleClickShowReEnterNewPassword = () => {
 
 const handleSubmit = () => {
   let regex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+  let regex_name = new RegExp(/^[a-z0-9]+$/i); 
 
-  if(!regex.test(values.email))
+  values.email = values.email.replace(/\s/g, "");
+
+  if(!regex_name.test(values.name) || values.name.length<2)
+  {
+      setValues({
+      ...values,
+      InvalidName: true,
+      InvalidMobNumber: false,
+      InvalidEmail: false,
+      InvalidPassword: false,
+      IsPasswordEqual:true,
+      });
+  }
+
+  else if(values.mob_number.length<10 || values.mob_number.length>15)
+  {
+      setValues({
+      ...values,
+      InvalidMobNumber: true,
+      InvalidName: false,
+      InvalidEmail: false,
+      InvalidPassword: false,
+      IsPasswordEqual:true,
+      });
+  }
+
+
+  else if(!regex.test(values.email))
   {
       setValues({
       ...values,
       InvalidEmail: true,
+      InvalidMobNumber: false,
+      InvalidName: false,
+      InvalidPassword: false,
+      IsPasswordEqual:true,
       });
   }
 
@@ -71,6 +107,10 @@ const handleSubmit = () => {
       setValues({
       ...values,
       InvalidPassword: true,
+      InvalidMobNumber: false,
+      InvalidName: false,
+      InvalidEmail: false,
+      IsPasswordEqual:true,
       });
   }
 
@@ -79,6 +119,10 @@ const handleSubmit = () => {
       setValues({
       ...values,
       IsPasswordEqual:false,
+      InvalidMobNumber: false,
+      InvalidName: false,
+      InvalidEmail: false,
+      InvalidPassword: false,
       });
   }
   
@@ -87,6 +131,8 @@ const handleSubmit = () => {
       setValues({
       ...values,
       submit: !values.submit,
+      InvalidName: false,
+      InvalidMobNumber: false,
       InvalidEmail: false,
       InvalidPassword: false,
       IsPasswordEqual:true,
@@ -106,19 +152,63 @@ const inputProps = {
 
               <Grid container spacing={4} className="frosted-container">
                   
+              <Grid item xs={12} lg={9}>
+                  <TextField
+                      size="small"
+                      label="Full Name"
+                      id="outlined-start-adornment"
+                      onChange={handleChange('name')}
+                      fullWidth
+                      className="frosted-item"
+                      variant="outlined"
+                      required
+                      inputProps={{
+                        style:{
+                          height: "45px"
+                        }
+                      }}
+                     />
+                  </Grid>
+
+                  <Grid item xs={12} lg={9}>
+                  <TextField
+                      size="small"
+                      label="Mobile Number"
+                      type="number"
+                      id="outlined-start-adornment"
+                      onChange={handleChange('mob_number')}
+                      fullWidth
+                      className="frosted-item"
+                      variant="outlined"
+                      required
+                      inputProps={{
+                        style:{
+                          height: "45px"
+                        }
+                      }}
+                     />
+                  </Grid>
+
                   <Grid item xs={12} lg={9}>
                      <TextField
+                      size="small"
                       label="Email"
                       id="outlined-start-adornment"
                       onChange={handleChange('email')}
                       fullWidth
                       className="frosted-item"
                       variant="outlined"
+                      inputProps={{
+                        style:{
+                          height: "45px"
+                        }
+                      }}
+                      required
                      />
                   </Grid>
                  
                   <Grid item xs={12} lg={9}>
-                     <FormControl  variant="outlined" fullWidth className="frosted-item">
+                     <FormControl  variant="outlined" fullWidth className="frosted-item" size="small" required>
                         <InputLabel htmlFor="outlined-adornment-password">New Password</InputLabel>
                         <OutlinedInput
                         id="outlined-adornment-password"
@@ -138,14 +228,18 @@ const inputProps = {
                         </InputAdornment>
                         }
                         label="New Password"
-
+                        inputProps={{
+                          style:{
+                            height: "45px"
+                          }
+                        }}
                         />
                      </FormControl>
                   </Grid>
                    
 
                   <Grid item xs={12} lg={9}>
-                     <FormControl  variant="outlined" fullWidth className="frosted-item">
+                     <FormControl  variant="outlined" fullWidth className="frosted-item" size="small" required>
                         <InputLabel htmlFor="outlined-adornment-password">Confirm Password</InputLabel>
                         <OutlinedInput
                         id="outlined-adornment-password"
@@ -165,12 +259,36 @@ const inputProps = {
                         </InputAdornment>
                         }
                         label="Re-Enter New Password"
-
+                        inputProps={{
+                          style:{
+                            height: "45px"
+                          }
+                        }}
                         />
                      </FormControl>
                   </Grid> 
 
                   <Grid item ls={3} className='leftreg'/>
+
+                  {values.InvalidName ? 
+                      <Grid container>
+                        <Grid item xs={2} /> 
+                        <Grid item xs={10}>
+                          <Typography variant="caption" display="block" className="InvalidEmailRegister">
+                             Please enter valid Name!
+                          </Typography> 
+                        </Grid>
+                      </Grid>:""}
+
+                  {values.InvalidMobNumber ? 
+                      <Grid container>
+                        <Grid item xs={2} /> 
+                        <Grid item xs={10}>
+                          <Typography variant="caption" display="block" className="InvalidEmailRegister">
+                             Please enter valid Mobile Number!
+                          </Typography> 
+                        </Grid>
+                  </Grid>:""}    
 
                   {values.InvalidEmail || values.InvalidPassword ? 
                       <Grid container>
@@ -211,7 +329,7 @@ const inputProps = {
 function MySignupButton(props){
      
      return (
-              <Button variant="contained"  className={!props.values.IsPasswordEqual || props.values.InvalidEmail || props.values.InvalidPassword?"Login-button-Invalid Login-button ":"Login-button"} fullWidth style={{textTransform: 'none'}}>
+              <Button variant="contained"  className={props.values.InvalidMobNumber || props.values.InvalidName || !props.values.IsPasswordEqual || props.values.InvalidEmail || props.values.InvalidPassword?"Login-button-Invalid Login-button ":"Login-button"} fullWidth style={{textTransform: 'none'}}>
                         Register
               </Button>
      ); 

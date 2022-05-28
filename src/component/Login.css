@@ -20,7 +20,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: -2;
   }
 
 .wrapper {
@@ -28,13 +28,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    
   }
+
   
   .frosted-card {
     background-color: rgba(255, 255, 255, 0.2) !important;
     overflow: hidden;
     height: 80vh;
     width: 45vw;
+    min-height: 500px !important;
+    
   }
   
   .frosted-card:before {
@@ -78,7 +82,26 @@
     
   }
 
- 
+  @media screen and (max-height: 500px){
+    .frosted-card {
+        margin-top: 260px !important;
+        margin-bottom: 20px;
+      }
+
+    
+  }
+
+  @media screen and (min-height: 540px){
+    .frosted-card-register{
+      height: 89vh !important;
+     } 
+  }
+  
+  @media screen and (max-height: 750px ){
+    .frosted-card-register{
+      height: 89vh !important;
+     } 
+  }
 
 
   /*-------------------------------------------------------Textfield Design----------------------------------------------------------------*/
@@ -185,33 +208,33 @@
   } 
 }
 
- @media screen and (max-width: 1100px){
+ @media screen and (max-width: 1200px){
   .Forgot {
-    margin-left: -1vw !important;
+    margin-left: 10vw !important;
   } 
 }
 
  @media screen and (max-width: 950px){
   .Forgot {
-    margin-left: -3vw !important;
+    margin-left: 10vw !important;
   } 
 }
 
 @media screen and (max-width: 780px){
   .Forgot {
-    margin-left: -5vw !important;
+    margin-left: 11vw !important;
   } 
 }
 
 @media screen and (max-width: 680px){
   .Forgot {
-    margin-left: -4vw !important;
+    margin-left: 12vw !important;
   } 
 }
 
 @media screen and (max-width: 580px){
   .Forgot {
-    margin-left: -5vw !important;
+    margin-left: 12vw !important;
   } 
 }
 
@@ -239,31 +262,32 @@
 
   @media screen and (max-width: 3000px){
     .Forgot {
-      margin-left: 3vw !important;
+      margin-left: 3.5vw !important;
     } 
   }
 
   @media screen and (max-width: 2500px){
     .Forgot {
-      margin-left: 1vw !important;
+      margin-left: 3vw !important;
     } 
   }
   
    @media screen and (max-width: 2000px){
     .Forgot {
-      margin-left: -1vw !important;
+      margin-left: 2vw !important;
     } 
   }
   
    @media screen and (max-width: 1750px){
     .Forgot {
-      margin-left: -2vw !important;
+      margin-left: 2.5vw !important;
     } 
   }
   
    @media screen and (max-width: 1400px){
     .Forgot {
-      margin-left: -4vw !important;
+      margin-left: 2vw !important;
+      font-size: 17px !important;
     } 
   }
 
@@ -287,29 +311,34 @@
 
   @media screen and (max-width: 3000px){
     .Forgot {
-      margin-left: 0vw !important;
+      margin-left: 3vw !important;
     } 
   }
 
   @media screen and (max-width: 2500px){
     .Forgot {
-      margin-left: -2.5vw !important;
+      margin-left: 4vw !important;
     } 
   }
   
    @media screen and (max-width: 2000px){
     .Forgot {
-      margin-left: -4vw !important;
+      margin-left: 6vw !important;
     } 
   }
 
+  @media screen and (max-width: 1500px){
+    .Forgot {
+      margin-left: 5vw !important;
+    } 
+  }
   
-}
-
-@media screen and (max-width: 950px){
-  .Forgot {
-    margin-left: 15vw !important;
-  } 
+  @media screen and (max-width: 950px){
+    .Forgot {
+      margin-left: 15vw !important;
+    } 
+  }
+  
 }
 
 
@@ -320,13 +349,18 @@
 /*----------------------------------------------------Login Button-----------------------------------------------------------------*/
 
 
+.login-margin{
+   margin-bottom: 100px !important;
+}
+
 .Login-button{
    background-color: rgba(0, 0, 0, 0.5) !important;
    border-radius: 100px !important;
    font-family: monospace !important;
    font-size: 1.3rem !important;
    font-weight: bolder !important;
-   height: 60px;
+   height: 40px;
+   margin-top: -10px !important;
   }
 
   .Login-button:hover, .Login-button:active{
@@ -425,19 +459,19 @@
 .container input {
   height: 100px;
   padding: 0px 14px;
-  font-size: 25px;
+  font-size: 15px;
 }
 
 .container label {
   height: 100px;
-  top: 18px;
-  font-size: 23px;
+  top: 4px;
+  font-size: 15px;
   margin-left: 20px;
 }
 
 .container svg {
-  width:50px;
-  height: 50px;
+  width:30px;
+  height: 30px;
 }
 
 .container .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root{
@@ -445,9 +479,9 @@
 }
 
 .container label[data-shrink="true"] {
-  top: -10px;
+  top: -1px;
   margin-left: 15px;
-  font-size: 35px;
+  font-size: 15px;
 }
 
 .container .Forgot{
@@ -455,7 +489,7 @@
 }
 
 .container .Login-button{
-  height: 90px;
+  height: 60px;
   font-size: 42px !important;
   margin-left: 15px !important;
 }
@@ -489,7 +523,7 @@
   }
 
   .container .Login-button{
-    height: 60px;
+    height: 40px;
     font-size: 30px !important;
     margin-left: 0px !important;
   }
@@ -514,19 +548,19 @@
 
   .container input {
     height: 130px;
-    font-size: 40px;
+    font-size: 17px;
   }
   
   .container label {
     height: 130px;
-    top: 25px;
-    font-size: 30px;
+    top: 2px;
+    font-size: 17px;
     margin-left: 20px;
   }
     
   .container svg {
-    width:55px;
-    height: 55px;
+    width:35px;
+    height: 35px;
   }
   
   .container .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root{
@@ -534,12 +568,12 @@
   }
   
   .container label[data-shrink="true"] {
-    top: -10px;
-    font-size: 40px;
+    top: -1px;
+    font-size: 17px;
   }
 
   .container .Login-button{
-    height: 130px;
+    height: 100px;
     font-size: 50px !important;
   }
 

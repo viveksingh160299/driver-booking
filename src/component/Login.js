@@ -44,12 +44,15 @@ const handleMouseDownPassword = (event) => {
 const handleSubmit = () => {
 
   let regex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+  
+  values.email = values.email.replace(/\s/g, "");
 
   if(!regex.test(values.email))
   {
       setValues({
       ...values,
       InvalidEmail: true,
+      InvalidPassword: false,
       });
   }
 
@@ -58,6 +61,7 @@ const handleSubmit = () => {
       setValues({
       ...values,
       InvalidPassword: true,
+      InvalidEmail: false,
       });
   }
   
@@ -82,22 +86,30 @@ const inputProps = {
        <div className="container">
 
               <Grid container spacing={4} className="frosted-container">
-                  
+
                   <Grid item xs={12} lg={9}>
                      <TextField
+                      size="small"
                       label="Email"
                       id="outlined-start-adornment"
                       onChange={handleChange('email')}
                       fullWidth
                       className="frosted-item"
                       variant="outlined"
+                      required
+                      inputProps={{
+                        style:{
+                          height: "45px"
+                        }
+                      }}
                      />
                   </Grid>
                  
                   <Grid item xs={12} lg={9}>
-                     <FormControl  variant="outlined" fullWidth className="frosted-item">
+                     <FormControl size="small" variant="outlined" fullWidth className="frosted-item" required>
                         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                         <OutlinedInput
+                        
                         id="outlined-adornment-password"
                         type={values.showPassword ? 'text' : 'password'}
                         value={values.password}
@@ -115,7 +127,11 @@ const inputProps = {
                         </InputAdornment>
                         }
                         label="Password"
-
+                        inputProps={{
+                          style:{
+                            height: "45px"
+                          }
+                        }}
                         />
                      </FormControl>
                   </Grid>
@@ -136,7 +152,9 @@ const inputProps = {
                            Forgot Password?
                       </Typography>
                   </Grid>
-
+                  
+                  <Grid item xs={12} />
+                
                   <Grid item xs={3} />
                   <Grid alignItems="center" justifyContent="center" container xs={6} style={inputProps}>
                   <Grid item xs={12} onClick={handleSubmit}>
@@ -144,6 +162,7 @@ const inputProps = {
                   </Grid>
                   </Grid>
                   <Grid item xs={3} />
+
 
               </Grid>
         </div>

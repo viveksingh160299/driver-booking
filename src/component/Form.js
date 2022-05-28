@@ -35,7 +35,7 @@ const handleIsSignup = () => {
 
           <div className="outer">
            <div className="wrapper">
-             <div className="card frosted-card text-white">
+             <div className={values.islogin?"card frosted-card text-white":"card frosted-card frosted-card-register  text-white"}>
                <div className="card-body">
                   <Grid container>
                      <Grid item xs={12}>
