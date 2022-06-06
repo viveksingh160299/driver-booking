@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Login.css';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
@@ -12,11 +12,13 @@ import InputLabel from '@mui/material/InputLabel';
 import { Typography } from '@mui/material';
 import { Button } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
+import {useNavigate} from "react-router-dom";
 
 
 export function Login(){
 
-  
+const navigate = useNavigate();
+
 const [values, setValues] = React.useState({
     email: '',
     password: '',
@@ -24,7 +26,16 @@ const [values, setValues] = React.useState({
     submit:true,
     InvalidEmail: false,
     InvalidPassword: false,
+    ServerError: false,
+    ServerErrorValue: '',
 });
+
+useEffect(()=>{
+  console.log("Inside effect")
+  console.log(values.submit)
+  console.log('servererror')
+  console.log(values.ServerError)
+},[values.submit,values.ServerError])
 
 const handleChange = (prop) => (event) => {
   setValues({ ...values, [prop]: event.target.value });
@@ -41,7 +52,7 @@ const handleMouseDownPassword = (event) => {
   event.preventDefault();
 };
 
-const handleSubmit = () => {
+async function handleSubmit(e) {
 
   let regex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
   
@@ -49,10 +60,12 @@ const handleSubmit = () => {
 
   if(!regex.test(values.email))
   {
+    
       setValues({
       ...values,
       InvalidEmail: true,
       InvalidPassword: false,
+      ServerError: false,
       });
   }
 
@@ -62,6 +75,7 @@ const handleSubmit = () => {
       ...values,
       InvalidPassword: true,
       InvalidEmail: false,
+      ServerError: false,
       });
   }
   
@@ -72,8 +86,50 @@ const handleSubmit = () => {
       submit: !values.submit,
       InvalidEmail: false,
       InvalidPassword: false,
+      ServerError: false,
+      })
+      
+      console.log("out catch")
+      console.log(values.submit)
+
+      const credentials = {email: values.email, password: values.password}
+
+      fetch('http://localhost:3001/login',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(credentials),
+      })
+      .then((res) =>{
+          if (!res.ok) {
+             throw new Error(res.body.error);
+          }
+          
+          return res.json();
+      })
+      .then( (data) => {
+          setTimeout(() => {
+              console.log('token')
+              console.log(data.accessToken)
+              localStorage.setItem("AccessToken", data.accessToken);
+              localStorage.setItem("EmailId", values.email);
+              navigate("/Dashboard")
+          }, 3000);
+
+      }).catch((err) => {
+        console.log('servererror')
+        console.log(values.ServerError)
+        console.log(err)
+        
+        setValues({
+          ...values,
+          ServerError: true,
+          ServerErrorValue: `${err}`,
+          })
+    
       });
-   }
+   };
 };
 
 const inputProps = {
@@ -84,7 +140,7 @@ const inputProps = {
 
       return (
        <div className="container">
-
+          
               <Grid container spacing={4} className="frosted-container">
 
                   <Grid item xs={12} lg={9}>
@@ -145,6 +201,16 @@ const inputProps = {
                           </Typography> 
                         </Grid>
                       </Grid>:""}  
+
+                  {values.ServerError  ? 
+                      <Grid container>
+                        <Grid item xs={2} /> 
+                        <Grid item xs={10}>
+                          <Typography variant="caption" display="block" className="InvalidEmail">
+                             {values.ServerErrorValue}
+                          </Typography> 
+                        </Grid>
+                      </Grid>:""}    
                 
                   <Grid item xs={6} />
                   <Grid item xs={6}>
@@ -165,6 +231,7 @@ const inputProps = {
 
 
               </Grid>
+          
         </div>
            
       );
