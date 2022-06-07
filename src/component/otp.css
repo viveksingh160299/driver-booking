@@ -1,0 +1,263 @@
+/*------------------------------------------------------------otpVerification-----------------------------------------------*/
+
+.otp{
+    margin-top: 0;
+  }
+  
+  .otp-item{
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+  
+  .otp-container {
+    background-color: rgb(246, 246, 246) !important;
+  }
+  
+  .otp-container .MuiFilledInput-root{
+    background-color: rgb(255, 251, 251) !important;
+  }
+
+  .otp-container .MuiFilledInput-root::after{
+    border-bottom: 4px solid orange !important;
+  }
+  
+  @media screen and (min-width:300px) {
+    .otp-item{
+      margin-left: 10px !important;
+      margin-right: 10px !important;
+    }
+  
+    .otp-container .MuiFilledInput-root{
+      font-size: 5vw !important;
+      width:10vw !important;
+    }
+  
+    .otp-container .MuiFilledInput-input{
+      padding-left: 3.2vw !important;
+      
+    }
+  }
+  
+  @media screen and (min-width:390px) {
+    .otp-item{
+      margin-left: 10px !important;
+      margin-right: 10px !important;
+    }
+  
+    .otp-container .MuiFilledInput-root{
+      font-size: 3vw !important;
+      width:7vw !important;
+    }
+  
+    .otp-container .MuiFilledInput-input{
+      padding-left: 2.4vw !important;
+      
+    }
+  }
+  
+  @media screen and (min-width:450px) {
+    .otp-item{
+      margin-left: 10px !important;
+      margin-right: 10px !important;
+    }
+  
+    .otp-container .MuiFilledInput-root{
+      font-size: 4vw !important;
+      width:7vw !important;
+    }
+  
+    .otp-container .MuiFilledInput-input{
+      padding-left: 2.3vw !important;
+      
+    }
+  }
+  
+  @media screen and (min-width:600px){
+  
+    .otp-item{
+      margin-left: 20px !important;
+      margin-right: 20px !important;
+    }
+  
+    .otp-container .MuiFilledInput-root{
+      font-size: 4vw !important;
+      width:7vw !important;
+    }
+  
+    .otp-container .MuiFilledInput-input{
+      padding-left: 2.3vw !important;
+      
+    }
+  
+  }
+  
+  
+  @media screen and (min-width:1500px){
+  
+    .otp-item{
+      margin-left: 40px !important;
+      margin-right: 40px !important;
+    }
+  
+    .otp-container .MuiFilledInput-root{
+      font-size: 4vw !important;
+      width:7vw !important;
+    }
+  
+    .otp-container .MuiFilledInput-input{
+      padding-left: 2.3vw !important;
+      
+    }
+  
+  }
+  
+  @media screen and (min-width:2200px){
+  
+    .otp-item{
+      margin-left: 60px !important;
+      margin-right: 60px !important;
+    }
+  
+    .otp-container .MuiFilledInput-root{
+      font-size: 4vw !important;
+      width:7vw !important;
+    }
+  
+    .otp-container .MuiFilledInput-input{
+      padding-left: 2.3vw !important;
+      
+    }
+  
+  }
+
+  .otp-button-container{
+        margin-left: 2vw;
+  }
+
+  @media screen and (min-width:300px){
+  
+    @media screen and (min-height:500px){
+      .otp-button-container{
+          margin-top: -50vh;
+      }
+   }
+
+    @media screen and (min-height:1000px){
+      .otp-button-container{
+          margin-top: -70vh;
+      }
+   }
+
+    @media screen and (min-height:1500px){
+      .otp-button-container{
+          margin-top: -80vh;
+      }
+   }
+
+    @media screen and (min-height:2000px){
+      .otp-button-container{
+          margin-top: -90vh ;
+      }
+   }
+
+}
+
+
+  @media screen and (min-width:700px){
+  
+    @media screen and (min-height:500px){
+      .otp-button-container{
+          margin-top: -45vh;
+      }
+   }
+
+    @media screen and (min-height:1000px){
+      .otp-button-container{
+          margin-top: -65vh;
+      }
+   }
+
+    @media screen and (min-height:1500px){
+      .otp-button-container{
+          margin-top: -75vh;
+      }
+   }
+
+    @media screen and (min-height:2000px){
+      .otp-button-container{
+          margin-top: -85vh ;
+      }
+   }
+
+}
+
+  @media screen and (min-width:1700px){
+  
+    @media screen and (min-height:500px){
+      .otp-button-container{
+          margin-top: -30vh;
+      }
+   }
+
+    @media screen and (min-height:1000px){
+      .otp-button-container{
+          margin-top: -50vh;
+      }
+   }
+
+    @media screen and (min-height:1500px){
+      .otp-button-container{
+          margin-top: -60vh;
+      }
+   }
+
+    @media screen and (min-height:2000px){
+      .otp-button-container{
+          margin-top: -70vh;
+      }
+   }
+    
+    @media screen and (min-height:2500px){
+      .otp-button-container{
+          margin-top: -80vh;
+      }
+   }
+
+  
+  }
+
+
+  @media screen and (min-width:2700px){
+  
+    @media screen and (min-height:500px){
+      .otp-button-container{
+          margin-top: -20vh;
+      }
+   }
+
+    @media screen and (min-height:1000px){
+      .otp-button-container{
+          margin-top: -40vh;
+      }
+   }
+
+    @media screen and (min-height:1500px){
+      .otp-button-container{
+          margin-top: -50vh;
+      }
+   }
+
+    @media screen and (min-height:2000px){
+      .otp-button-container{
+          margin-top: -60vh;
+      }
+   }
+    
+    @media screen and (min-height:2500px){
+      .otp-button-container{
+          margin-top: -70vh;
+      }
+   }
+
+  
+  }

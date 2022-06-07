@@ -12,10 +12,12 @@ import InputLabel from '@mui/material/InputLabel';
 import { Button } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Typography } from '@mui/material';
+import {useNavigate } from 'react-router-dom';
 
 
 export function Signup(){
 
+const navigate = useNavigate();  
   
 const [values, setValues] = React.useState({
     name: '',
@@ -31,6 +33,8 @@ const [values, setValues] = React.useState({
     InvalidEmail: false,
     InvalidPassword: false,
     IsPasswordEqual:true,
+    ServerError: false,
+    ServerErrorValue: '',
 });
 
 const handleChange = (prop) => (event) => {
@@ -59,9 +63,10 @@ const handleClickShowReEnterNewPassword = () => {
     event.preventDefault();
   };
 
-const handleSubmit = () => {
+  async function handleSubmit(e) {
+
   let regex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
-  let regex_name = new RegExp(/^[a-z0-9]+$/i); 
+  let regex_name = new RegExp(/^[a-zA-Z0-9_ ]+$/i); 
 
   values.email = values.email.replace(/\s/g, "");
 
@@ -74,6 +79,7 @@ const handleSubmit = () => {
       InvalidEmail: false,
       InvalidPassword: false,
       IsPasswordEqual:true,
+      ServerError: false,
       });
   }
 
@@ -86,6 +92,7 @@ const handleSubmit = () => {
       InvalidEmail: false,
       InvalidPassword: false,
       IsPasswordEqual:true,
+      ServerError: false,
       });
   }
 
@@ -99,6 +106,7 @@ const handleSubmit = () => {
       InvalidName: false,
       InvalidPassword: false,
       IsPasswordEqual:true,
+      ServerError: false,
       });
   }
 
@@ -111,6 +119,7 @@ const handleSubmit = () => {
       InvalidName: false,
       InvalidEmail: false,
       IsPasswordEqual:true,
+      ServerError: false,
       });
   }
 
@@ -123,6 +132,7 @@ const handleSubmit = () => {
       InvalidName: false,
       InvalidEmail: false,
       InvalidPassword: false,
+      ServerError: false,
       });
   }
   
@@ -136,7 +146,46 @@ const handleSubmit = () => {
       InvalidEmail: false,
       InvalidPassword: false,
       IsPasswordEqual:true,
+      ServerError: false,
       });
+
+      const credentials = {mobile_number: values.mob_number}
+
+      fetch('http://localhost:3001/otp',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(credentials),
+      })
+      .then((res) =>{
+          if (!res.ok) {
+             throw new Error(res.body.error);
+          }
+          
+          return res.json();
+      })
+      .then( (data) => {
+          setTimeout(() => {
+              console.log('token')
+              console.log(data.otp_token)
+              localStorage.setItem("otp_token", data.otp_token);
+              navigate("/otpVerification", {state:{name: values.name, mobile_number: values.mob_number, email: values.email, password: values.newpassword}} )
+          }, 6000);
+
+      }).catch((err) => {
+        console.log('servererror')
+        console.log(values.ServerError)
+        console.log(err)
+        
+        setValues({
+          ...values,
+          ServerError: true,
+          ServerErrorValue: `${err}`,
+          })
+    
+      });
+
    }
 };
 
@@ -308,7 +357,17 @@ const inputProps = {
                              New Password and Confirm Password is not same!
                           </Typography> 
                         </Grid>
-                      </Grid>:""}      
+                      </Grid>:""}  
+
+                  {values.ServerError  ? 
+                      <Grid container>
+                        <Grid item xs={2} /> 
+                        <Grid item xs={10}>
+                          <Typography variant="caption" display="block" className="InvalidEmail">
+                             {values.ServerErrorValue}
+                          </Typography> 
+                        </Grid>
+                      </Grid>:""}         
 
                   
 

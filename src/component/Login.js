@@ -31,6 +31,8 @@ const [values, setValues] = React.useState({
 });
 
 useEffect(()=>{
+  
+
   console.log("Inside effect")
   console.log(values.submit)
   console.log('servererror')
@@ -110,12 +112,13 @@ async function handleSubmit(e) {
       })
       .then( (data) => {
           setTimeout(() => {
-              console.log('token')
+              console.log('Inside Login : token')
               console.log(data.accessToken)
               localStorage.setItem("AccessToken", data.accessToken);
               localStorage.setItem("EmailId", values.email);
               navigate("/Dashboard")
-          }, 3000);
+              
+          }, 6000);
 
       }).catch((err) => {
         console.log('servererror')

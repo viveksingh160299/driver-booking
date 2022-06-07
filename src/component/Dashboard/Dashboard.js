@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import './Dashboard.css';
 import {useNavigate} from "react-router-dom";
+import  Button  from '@mui/material/Button';
 
 export function Dashboard () {
 
+    console.log("INSIDE DASHBOARD")
     const [userdata, setUserData] = useState()
     const navigate = useNavigate()
 
@@ -41,13 +43,18 @@ export function Dashboard () {
           .then( (data) => {
               setTimeout(() => {
                 setUserData(JSON.stringify(data));
-              }, 3000);
+              }, 6000);
     
           }).catch((err) => {
               console.log(err)
               navigate("/Form")
           });
     },[])
+
+    const handleLogout = () => {
+        localStorage.clear("AccessToken")
+        navigate('/Form')
+    }
 
     return (
        <Grid container spacing={4} direction="row" justifyContent="center" alignItems="center" width="100vw" height="100vh">
@@ -56,6 +63,14 @@ export function Dashboard () {
                 <Typography variant="caption" display="block">
                             Welcome {userdata}
                 </Typography>
+            </Grid>
+        </Grid>
+
+        <Grid container spacing={4} direction="column" justifyContent="center" alignItems="center">
+            <Grid item xs={6} ls={3} onClick={handleLogout}>
+                <Button style={{backgroundColor: "red"}} >
+                     Logout
+                </Button>
             </Grid>
         </Grid>
        </Grid> 
