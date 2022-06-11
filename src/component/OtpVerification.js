@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import {useLocation, useNavigate} from "react-router-dom";
 import { TextField } from '@mui/material';
 import MySubmitButton from './MyButtons/MySubmitbutton'
+import { Typography } from '@mui/material';
 
 export function OtpVerification () {
 
@@ -201,6 +202,17 @@ export function OtpVerification () {
 
     return (
         <Grid container direction="row" justifyContent="center" alignItems="center" width="100vw" height="100vh" className='otp-container'>
+         
+         <Grid container direction="row" justifyContent="center" alignItems="center" xs={12} >
+             <Grid item xs={3}/>
+                <Grid item xs={6}>
+                    <Typography variant="caption" display="block" textAlign={'center'} fontSize="20px">
+                        OTP has been successfully sent to Mobile. Please enter the same OTP below.
+                    </Typography> 
+                </Grid>
+             <Grid item xs={3} />
+         </Grid>
+         
          <Grid container direction="row" justifyContent="center" alignItems="center" className="otp" xs={12} md={8} ls={6}>
              <Grid item xs={1} className="otp-item">
                 <TextField
