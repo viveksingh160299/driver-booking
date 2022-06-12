@@ -754,7 +754,7 @@
 
 
 .home-container{
-  background-color: #fcb045;
+  background-color: #1b1e23;
   width: 100vw;
 }
 
@@ -796,7 +796,55 @@
 }
 
 .home-main-typography{
-   font-size: 7vmin !important;
-   font-family: system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+   font-size: 8vmin !important;
+   font-family: "YACgESm-6i0 0", _fb_, auto !important;
    color: #f9fafb;
+}
+
+.home-main-video-container{
+  width:  40vw !important;
+  height: 80vh !important;
+  margin-left: 3vw !important;
+}
+
+.home-main-video-container-1{
+  width:  40vw !important;
+  height: 38vh !important;
+  margin-top: 0.5vw !important;
+  margin-bottom: 1.5vw !important;
+}
+
+.home-main-video-item-1{
+  width: 40vw !important;
+  height: 38vh !important;
+}
+
+.home-video-1{
+  width: 40vw !important;
+  height: 38vh !important;
+  object-fit: fill !important;
+  border-radius: 2vmin;
+  border: 1.2vmin solid;
+  border-color: #101114;
+}
+
+.home-main-video-container-2{
+  width:  40vw !important;
+  height: 38vh !important;
+  margin-top: 0vw !important;
+  margin-bottom: 2vw !important;
+}
+
+.home-main-video-item-2{
+  width: 40vw !important;
+  height: 38vh !important;
+}
+
+.home-video-2{
+  width: 40vw !important;
+  height: 38vh !important;
+  object-fit: fill !important;
+  border-radius: 2vmin;
+  border: 1.2vmin solid;
+  border-color: #101114;
 }

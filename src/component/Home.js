@@ -151,10 +151,16 @@ export function Home(){
                     <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-body-paper'>                        
                         <Grid item container direction="row" justifyContent="center" alignItems="center">
                             <AnimatedTypography style={{...springPropsTypography1, ...springPropsTypography}} className='home-main-typography'>
-                                 BOOK YOUR DRIVER 
+                                Book
+                            </AnimatedTypography>
+                            <AnimatedTypography className='home-main-typography'>
+                                &nbsp;
+                            </AnimatedTypography>
+                            <AnimatedTypography style={{...springPropsTypography1, ...springPropsTypography}} className='home-main-typography'>
+                                Your Driver
                             </AnimatedTypography>
                             <AnimatedTypography style={{...springPropsTypography2, ...springPropsTypography}} className='home-main-typography'>
-                                 IN FEW CLICKS
+                                In Few Clicks
                             </AnimatedTypography>
                         </Grid>
                     </Grid>
@@ -166,18 +172,18 @@ export function Home(){
                 <AnimatedPaper style={{borderRadius:'0',backgroundColor:'white',width:'0.5vh',...springPropsGridRightBorder,...springPropsMain}}></AnimatedPaper>
             
                 
-                <Grid container direction="row" justifyContent="center" alignItems="center" style={{width:'40vw',height:'80vh', marginLeft: '3vw'}}>
-                    <Grid container direction="column" justifyContent="center" alignItems="center" style={{width:'40vw',height:'38vh', marginTop: '0.5vw', marginBottom: '1.5vw'}}>
-                        <Grid item container direction="row" justifyContent="center" alignItems="center" style={{width:'40vw',height:'38vh'}}>
-                            <animated.video autoPlay loop muted style={{width:'40vw',height:'38vh',objectFit: 'fill',borderRadius: '2vmin', border:'1.2vmin solid',...springPropsVideo}}>
+                <Grid container direction="row" justifyContent="center" alignItems="center" className='home-main-video-container'>
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-container-1' >
+                        <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-item-1'>
+                            <animated.video autoPlay loop muted style={{...springPropsVideo}} className='home-video-1'>
                                 <source src={background_home_1} type="video/mp4" />
                             </animated.video>
                         </Grid>
                     </Grid>
 
-                    <Grid container direction="column" justifyContent="center" alignItems="center" style={{width:'40vw',height:'38vh', marginTop: '0vw', marginBottom: '2vw'}}>
-                        <Grid item container direction="row" justifyContent="center" alignItems="center" style={{width:'40vw',height:'38vh'}}>
-                            <animated.video autoPlay loop muted style={{width:'40vw',height:'38vh',objectFit: 'fill',borderRadius: '2vmin',border:'1.2vmin solid',...springPropsVideo}}>
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-container-2' >
+                        <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-item-2'>
+                            <animated.video autoPlay loop muted style={{...springPropsVideo}} className='home-video-2'>
                                 <source src={background_home_2} type="video/mp4" />
                             </animated.video>
                         </Grid>
