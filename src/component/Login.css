@@ -754,45 +754,51 @@
 
 
 .home-container{
-  background-color: #1b1e23;
-  width: 100vw;
+  background-color: #f8fbff;
+  width: 100vw !important;
+  height: 230vh !important;
 }
 
 
 
 .home-login-button{
-  height: 10vh !important;
-  top:8px;
+  height: 15vh !important;
+  width : 100vw;
+  margin-top: 3vh !important;
 }
 
 .home-paper-login-botton{
-  height: 10vh !important;
+  height: 15vh !important;
+}
+
+.home-paper-login-botton-grid{
+  height: 15vh !important;
+  width: 15vw !important;
 }
 
 .home-main-body{
-  height: 90vh !important;
+  height: 45vh !important;
   padding-left: 1vw;
+  margin-top: 10vh !important;
 }
 
 .home-side-bars-paper{
    background-color: black;
-   width : 0.5vw;
-   height: 80vh;
-   margin-right: 0.5vw ;
+   width : 1vw;
+   height: 40vh;
+   margin-right: 1vw ;
 }
 
 .home-main-body-paper{
    background-color: black !important;
-   width : 50vw;
-   height: 80vh;
-   
+   width : 70vw;
+   height: 40vh;
   }
 
 .nav-bar-paper{
   background-color: rgb(0, 0, 0) !important;
-  width : 98vw;
-  height: 10vh;
-  margin-top: 1vh;
+  width : 95vw;
+  height: 15.5vh;
 }
 
 .home-main-typography{
@@ -802,9 +808,9 @@
 }
 
 .home-main-video-container{
-  width:  40vw !important;
-  height: 80vh !important;
-  margin-left: 3vw !important;
+  width:  100vw !important;
+  height: 40vh !important;
+  margin-top: 20vh !important;
 }
 
 .home-main-video-container-1{
@@ -812,6 +818,7 @@
   height: 38vh !important;
   margin-top: 0.5vw !important;
   margin-bottom: 1.5vw !important;
+  margin-left: 7vw !important;
 }
 
 .home-main-video-item-1{
@@ -833,6 +840,7 @@
   height: 38vh !important;
   margin-top: 0vw !important;
   margin-bottom: 2vw !important;
+  margin-right: 7vw !important;
 }
 
 .home-main-video-item-2{
@@ -847,4 +855,11 @@
   border-radius: 2vmin;
   border: 1.2vmin solid;
   border-color: #101114;
+}
+
+.background-image{
+  background-image: url('./utils/background-image.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100vw 100vh !important;
 }

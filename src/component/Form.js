@@ -5,7 +5,7 @@ import {Signup} from './Signup';
 import Grid from '@mui/material/Grid';
 import { Button } from '@mui/material';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import background from './background.mp4';
+import background from './utils/background.mp4';
 
 export function Form(){
 
