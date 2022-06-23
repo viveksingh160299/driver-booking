@@ -171,7 +171,7 @@ const handleClickShowReEnterNewPassword = () => {
               console.log(data.otp_token)
               localStorage.setItem("otp_token", data.otp_token);
               navigate("/otpVerification", {state:{name: values.name, mobile_number: values.mob_number, email: values.email, password: values.newpassword}} )
-          }, 6000);
+          }, 4000);
 
       }).catch((err) => {
         console.log('servererror')

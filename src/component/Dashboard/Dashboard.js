@@ -43,7 +43,7 @@ export function Dashboard () {
           .then( (data) => {
               setTimeout(() => {
                 setUserData(JSON.stringify(data));
-              }, 6000);
+              }, 4000);
     
           }).catch((err) => {
               console.log(err)

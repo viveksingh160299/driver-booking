@@ -755,7 +755,6 @@
 
 .home-container{
   background-color: #f8fbff;
-  width: 100vw !important;
   height: 230vh !important;
 }
 
@@ -790,20 +789,25 @@
 }
 
 .home-main-body-paper{
-   background-color: black !important;
+   background-color: rgb(65, 65, 65, 0.5) !important;
    width : 70vw;
    height: 40vh;
+   border-radius: 0px !important;
   }
 
 .nav-bar-paper{
-  background-color: rgb(0, 0, 0) !important;
+  background-color: rgb(65, 65, 65) !important;
   width : 95vw;
   height: 15.5vh;
+  border-radius: 0px !important;
+  opacity: 0.9 !important;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
 
 .home-main-typography{
    font-size: 8vmin !important;
-   font-family: "YACgESm-6i0 0", _fb_, auto !important;
+   font-family: "Asap", sans-serif !important;
    color: #f9fafb;
 }
 
@@ -858,7 +862,7 @@
 }
 
 .background-image{
-  background-image: url('./utils/background-image.jpg');
+  background-image: url('https://wallpaperaccess.com/full/1567846.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed; 
   background-size: 100vw 100vh !important;

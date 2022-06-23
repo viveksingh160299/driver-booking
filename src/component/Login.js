@@ -118,7 +118,7 @@ async function handleSubmit(e) {
               localStorage.setItem("EmailId", values.email);
               navigate("/Dashboard")
               
-          }, 6000);
+          }, 4000);
 
       }).catch((err) => {
         console.log('servererror')

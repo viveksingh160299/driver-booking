@@ -1,7 +1,8 @@
-import * as React from 'react';
+import {React, useState} from 'react';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { animated, useSpring } from "react-spring";
 
 const BootstrapButton = styled(Button)({
   boxShadow: 'none',
@@ -43,11 +44,44 @@ const BootstrapButton = styled(Button)({
 
 
 export default function CustomizedButtons(props) {
+  const AnimatedBootstrapButton = animated(BootstrapButton);
+  
+  const [Width_Height, setWidthHeight] = useState({
+    width: '10vw',
+    height: '6vh',
+    fontsize: '1vw',
+  })
+
+  const setWidthHeightOnHover = () => {
+  
+    if ( Width_Height.width == '10vw'){
+      setWidthHeight({
+        width: '12vw',
+        height: '8vh',
+        fontsize: '1.2vw'
+      });
+    }
+
+    else{
+      setWidthHeight({
+        width: '10vw',
+        height: '6vh',
+        fontsize: '1vw'
+      });
+    }
+  };
+
+  const springWidthHeightOnHover = useSpring({
+    from: {width: '10vw', height: '6vh', fontSize: '1vw'},
+    to: {width: Width_Height.width, height: Width_Height.height, fontSize: Width_Height.fontsize},
+    config: { duration: 200 }
+  });
+
   return (
     <Stack spacing={2} direction="row">
-      <BootstrapButton variant="contained" disableRipple>
+      <AnimatedBootstrapButton onMouseEnter={()=>setWidthHeightOnHover()} onMouseLeave={()=>setWidthHeightOnHover()} style={{...springWidthHeightOnHover}} variant="contained" disableRipple>
         {props.name}
-      </BootstrapButton>
+      </AnimatedBootstrapButton>
     </Stack>
   );
 }

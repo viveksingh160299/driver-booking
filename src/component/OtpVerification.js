@@ -109,7 +109,7 @@ export function OtpVerification () {
                     console.log('token')
                     console.log(data.otp_token)
                     localStorage.setItem("otp_token", data.otp_token);
-                }, 6000);
+                }, 4000);
 
                 setFocus( 1 );
                 setValues({
@@ -181,7 +181,7 @@ export function OtpVerification () {
               localStorage.clear("otp_token");
               navigate("/Dashboard")
 
-           }, 6000);
+           }, 4000);
 
           }).catch((err) => {
             localStorage.clear("otp_token");

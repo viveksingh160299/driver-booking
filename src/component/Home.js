@@ -63,13 +63,13 @@ export function Home(){
       });  
 
     const springPropsVideo1 = useSpring({
-        from: { x: '-30vh', opacity: 0 },
+        from: { x: '-80vh', opacity: 0 },
         to: { x: '0vh', opacity: 1 },
         config: { duration: 1000 }
       });
 
     const springPropsVideo2 = useSpring({
-        from: { x: '30vh', opacity: 0 },
+        from: { x: '80vh', opacity: 0 },
         to: { x: '0vh', opacity: 1 },
         config: { duration: 1000 }
       });  
@@ -168,19 +168,22 @@ export function Home(){
       });
 
     return (
-        <Grid container direction="row"  className='home-container background-image'>
+
+      <Grid container direction="row" justifyContent="center" alignItems="center" >
+        <Grid container item direction="row" className='home-container background-image'>
+
 
             <Grid container  direction="row" justifyContent="center" alignItems="center" xs={12}  className='home-login-button'>
-                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#ffffff',width:'0.5vh',...springPropsGridNavigationLeftBorder}}></AnimatedPaper>
+                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',width:'0.5vh',...springPropsGridNavigationLeftBorder}}></AnimatedPaper>
                 <Paper elevation={24} className='nav-bar-paper'>
                    
                     <Grid item container direction="row" justifyContent="center" alignItems="center">
-                            <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#ffffff',height:'0.5vh',...springPropsGridNavigationTopBorder}}></AnimatedPaper>
+                            <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',height:'0.5vh',...springPropsGridNavigationTopBorder}}></AnimatedPaper>
                     </Grid>
                    
                     <Grid container  direction="row" justifyContent="flex-end" alignItems="center" xs={12}  className='home-paper-login-botton'>
                         <Grid onClick={NavigateToLogin} className='home-paper-login-botton-grid'  container item xs={2}  justifyContent="center" alignItems="center" > 
-                            <animated.div style={springPropsButton}><MySubmitButton name="Login / Signup" /></animated.div>
+                            <animated.div  style={{...springPropsButton}}><MySubmitButton name="Login / Signup" /></animated.div>
                         </Grid>
 
                         <Grid container item style={{width:'0.2vw', height:'5.5vh', backgroundColor: 'white'}}  justifyContent="center" alignItems="center"></Grid>
@@ -191,23 +194,27 @@ export function Home(){
                     </Grid>
 
                     <Grid item container direction="row" justifyContent="center" alignItems="center">
-                            <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#ffffff',height:'0.5vh',...springPropsGridNavigationBottomBorder}}></AnimatedPaper>
+                            <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',height:'0.5vh',...springPropsGridNavigationBottomBorder}}></AnimatedPaper>
                     </Grid>
 
                 </Paper>
-                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#ffffff',width:'0.5vh',...springPropsGridNavigationRightBorder,}}></AnimatedPaper>
+                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',width:'0.5vh',...springPropsGridNavigationRightBorder,}}></AnimatedPaper>
             </Grid>
 
+
+
+
+
             <Grid container  direction="row" justifyContent="flex-start" alignItems="center" xs={12} className='home-main-body' >
-                <AnimatedPaper elevation={24} style={{marginLeft: '6.5vw', ...springProps1}} className='home-side-bars-paper' />
+                <AnimatedPaper elevation={24} style={{marginLeft: '6vw', ...springProps1}} className='home-side-bars-paper' />
                 <AnimatedPaper elevation={24} style={springProps2} className='home-side-bars-paper' />
                 <AnimatedPaper elevation={24} style={springProps3} className='home-side-bars-paper' />
            
-                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#ffffff',width:'0.5vh',...springPropsGridLeftBorder,...springPropsMain}}></AnimatedPaper>
+                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',width:'0.5vh',...springPropsGridLeftBorder,...springPropsMain}}></AnimatedPaper>
                 <AnimatedPaper style={springPropsMain} elevation={24} className='home-main-body-paper'>
                     
                     <Grid item container direction="row" justifyContent="center" alignItems="center">
-                            <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#ffffff',height:'0.5vh',...springPropsGridTopBorder}}></AnimatedPaper>
+                            <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',height:'0.5vh',...springPropsGridTopBorder}}></AnimatedPaper>
                     </Grid>
 
                     <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-body-paper'>                        
@@ -225,16 +232,18 @@ export function Home(){
                     </Grid>
 
                     <Grid item container direction="row" justifyContent="center" alignItems="center">
-                            <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#ffffff',height:'0.5vh',...springPropsGridBottomBorder}}></AnimatedPaper>
+                            <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',height:'0.5vh',...springPropsGridBottomBorder}}></AnimatedPaper>
                     </Grid>
                 </AnimatedPaper>
-                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#ffffff',width:'0.5vh',...springPropsGridRightBorder,...springPropsMain}}></AnimatedPaper>
+                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',width:'0.5vh',...springPropsGridRightBorder,...springPropsMain}}></AnimatedPaper>
             
-                <AnimatedPaper elevation={24} style={{marginLeft: '3.3vw', ...springProps1}} className='home-side-bars-paper' />
+                <AnimatedPaper elevation={24} style={{marginLeft: '3.9vw', ...springProps1}} className='home-side-bars-paper' />
                 <AnimatedPaper elevation={24} style={springProps2} className='home-side-bars-paper' />
                 <AnimatedPaper elevation={24} style={springProps3} className='home-side-bars-paper' />
             </Grid>
                 
+
+
 
 
             <Grid container direction="row" justifyContent="flex-start" alignItems="center" className='home-main-video-container'>
@@ -257,7 +266,10 @@ export function Home(){
                     </Grid>
             </Grid>
 
+
+
         </Grid>
+      </Grid>
     );
 
 }
