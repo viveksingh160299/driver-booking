@@ -52,24 +52,21 @@ export default function CustomizedButtons(props) {
     fontsize: '1vw',
   })
 
-  const setWidthHeightOnHover = () => {
-  
-    if ( Width_Height.width == '10vw'){
+  const setWidthHeightOnEnter = () => {
       setWidthHeight({
         width: '12vw',
         height: '8vh',
         fontsize: '1.2vw'
       });
-    }
-
-    else{
-      setWidthHeight({
-        width: '10vw',
-        height: '6vh',
-        fontsize: '1vw'
-      });
-    }
   };
+
+  const setWidthHeightOnLeave = () => {
+    setWidthHeight({
+      width: '10vw',
+      height: '6vh',
+      fontsize: '1vw'
+    });
+};
 
   const springWidthHeightOnHover = useSpring({
     from: {width: '10vw', height: '6vh', fontSize: '1vw'},
@@ -79,7 +76,7 @@ export default function CustomizedButtons(props) {
 
   return (
     <Stack spacing={2} direction="row">
-      <AnimatedBootstrapButton onMouseEnter={()=>setWidthHeightOnHover()} onMouseLeave={()=>setWidthHeightOnHover()} style={{...springWidthHeightOnHover}} variant="contained" disableRipple>
+      <AnimatedBootstrapButton onMouseEnter={()=>setWidthHeightOnEnter()} onMouseLeave={()=>setWidthHeightOnLeave()} style={{...springWidthHeightOnHover}} variant="contained" disableRipple>
         {props.name}
       </AnimatedBootstrapButton>
     </Stack>
