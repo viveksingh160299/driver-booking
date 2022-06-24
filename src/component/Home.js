@@ -254,9 +254,29 @@ export function Home(){
                             </animated.video>
                         </Grid>
                     </Grid>
+
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-1' >
+                        <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-item-1'>
+                            <AnimatedPaper elevation={24} style={{...springPropsVideo2}} className='home-main-video-content-1'>
+                              <AnimatedTypography style={{...springPropsTypography2, ...springPropsTypography}} className='home-main-video-content-typography'>
+                                Easily book your driver to deliver goods on your mobile. Ship your product like furnitures, electrical appliances without worry.
+                              </AnimatedTypography>
+                            </AnimatedPaper>
+                        </Grid>
+                    </Grid>
             </Grid>
             
             <Grid container direction="row" justifyContent="flex-end" alignItems="center" className='home-main-video-container'>
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-2' >
+                        <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-item-2'>
+                            <AnimatedPaper elevation={24} style={{...springPropsVideo1}} className='home-main-video-content-2'>
+                              <AnimatedTypography style={{...springPropsTypography2, ...springPropsTypography}} className='home-main-video-content-typography'>
+                                  Deliver your goods to destination in time. We ensure safe and quick delivery. All available at your doorstep at affordable price.
+                              </AnimatedTypography>
+                            </AnimatedPaper>
+                        </Grid>
+                    </Grid>                   
+                   
                     <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-container-2' >
                         <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-item-2'>
                             <animated.video autoPlay loop muted style={{...springPropsVideo2}} className='home-video-2'>
