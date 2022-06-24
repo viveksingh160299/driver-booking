@@ -62,6 +62,13 @@ export function Home(){
         config: { duration: 1000 }
       });  
 
+      const springPropsTypography3 = useSpring({
+        loop: { reverse: true },
+        from: {color: '#000000' },
+        to: { color: '#777777' },
+        config: { duration: 2000 }
+      });   
+
     const springPropsVideo1 = useSpring({
         from: { x: '-80vh', opacity: 0 },
         to: { x: '0vh', opacity: 1 },
@@ -178,19 +185,24 @@ export function Home(){
                 <Paper elevation={24} className='nav-bar-paper'>
                    
                     <Grid item container direction="row" justifyContent="center" alignItems="center">
-                            <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',height:'0.5vh',...springPropsGridNavigationTopBorder}}></AnimatedPaper>
+                        <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',height:'0.5vh',...springPropsGridNavigationTopBorder}}></AnimatedPaper>
                     </Grid>
                    
-                    <Grid container  direction="row" justifyContent="flex-end" alignItems="center" xs={12}  className='home-paper-login-botton'>
-                        <Grid onClick={NavigateToLogin} className='home-paper-login-botton-grid'  container item xs={2}  justifyContent="center" alignItems="center" > 
+                    <Grid container  direction="column" justifyContent="center" alignItems="center"  className='home-paper-login-botton'>
+                        
+                        <Grid item container direction="row" justifyContent="center" alignItems="center" className='driver-icon' />
+                        <Grid item container direction="row" justifyContent="center" alignItems="center" className='booking-icon' />
+                        
+                        <Grid onClick={NavigateToLogin} className='home-paper-login-botton-grid'  container item  justifyContent="center" alignItems="center" > 
                             <animated.div  style={{...springPropsButton}}><MySubmitButton name="Login / Signup" /></animated.div>
                         </Grid>
 
-                        <Grid container item style={{width:'0.2vw', height:'5.5vh', backgroundColor: 'white'}}  justifyContent="center" alignItems="center"></Grid>
+                        <Grid className='nav-button-separator' container item style={{width:'0.2vw', height:'5.5vh', backgroundColor: 'white'}}  justifyContent="center" alignItems="center"></Grid>
 
-                        <Grid onClick={NavigateToDashboard} container item xs={2}  justifyContent="center" alignItems="center">
+                        <Grid onClick={NavigateToDashboard} className='home-paper-login-botton-grid' container item justifyContent="center" alignItems="center">
                             <animated.div style={springPropsButton}><MySubmitButton name="Dashboard"/></animated.div>
                         </Grid>
+
                     </Grid>
 
                     <Grid item container direction="row" justifyContent="center" alignItems="center">
@@ -256,34 +268,73 @@ export function Home(){
                     </Grid>
 
                     <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-1' >
-                        <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-item-1'>
+                        <Grid  container item direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-item-1'>
                             <AnimatedPaper elevation={24} style={{...springPropsVideo2}} className='home-main-video-content-1'>
-                              <AnimatedTypography style={{...springPropsTypography2, ...springPropsTypography}} className='home-main-video-content-typography'>
-                                Easily book your driver to deliver goods on your mobile. Ship your product like furnitures, electrical appliances without worry.
-                              </AnimatedTypography>
-                            </AnimatedPaper>
+                              <Grid container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-container-1-1' >
+                                
+                                <Grid container item direction="row" justifyContent="flex-start" alignItems="center" >                        
+                                  
+                                  <Grid item  >
+                                    <AnimatedTypography style={{...springPropsTypography2, ...springPropsTypography3}} className='home-main-video-content-typography'>
+                                      - Easily book your driver to deliver goods on your mobile.
+                                    </AnimatedTypography>
+                                  </Grid>
+                                
+                                  <Grid item >
+                                    <AnimatedTypography style={{...springPropsTypography2, ...springPropsTypography3}} className='home-main-video-content-typography'>
+                                      - Ship your product like furnitures, electrical appliances without worry.
+                                    </AnimatedTypography>
+                                  </Grid>
+                                
+                                </Grid>
+                              
+                              </Grid>
+                            </AnimatedPaper> 
                         </Grid>
                     </Grid>
             </Grid>
             
             <Grid container direction="row" justifyContent="flex-end" alignItems="center" className='home-main-video-container'>
-                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-2' >
-                        <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-item-2'>
-                            <AnimatedPaper elevation={24} style={{...springPropsVideo1}} className='home-main-video-content-2'>
-                              <AnimatedTypography style={{...springPropsTypography2, ...springPropsTypography}} className='home-main-video-content-typography'>
-                                  Deliver your goods to destination in time. We ensure safe and quick delivery. All available at your doorstep at affordable price.
-                              </AnimatedTypography>
-                            </AnimatedPaper>
-                        </Grid>
-                    </Grid>                   
-                   
+                 
                     <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-container-2' >
                         <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-item-2'>
-                            <animated.video autoPlay loop muted style={{...springPropsVideo2}} className='home-video-2'>
+                            <animated.video autoPlay loop muted style={{...springPropsVideo1}} className='home-video-2'>
                                 <source src={background_home_2} type="video/mp4" />
                             </animated.video>
                         </Grid>
                     </Grid>
+                 
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-2' >
+                        <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-item-2'>
+                            <AnimatedPaper elevation={24} style={{...springPropsVideo2}} className='home-main-video-content-2'>
+                              <Grid container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-container-1-1' >
+                                
+                                <Grid container item direction="row" justifyContent="flex-start" alignItems="center" >                        
+                                 
+                                  <Grid item  >
+                                    <AnimatedTypography style={{...springPropsTypography2, ...springPropsTypography3}} className='home-main-video-content-typography'>
+                                      - Deliver your goods to destination in time.
+                                    </AnimatedTypography>
+                                  </Grid>
+                                  
+                                  <Grid item  >
+                                    <AnimatedTypography style={{...springPropsTypography2, ...springPropsTypography3}} className='home-main-video-content-typography'>
+                                      - We ensure safe and quick delivery.
+                                    </AnimatedTypography>
+                                  </Grid>
+                                  
+                                  <Grid item  >
+                                    <AnimatedTypography style={{...springPropsTypography2, ...springPropsTypography3}} className='home-main-video-content-typography'>
+                                      - All available at your doorstep at affordable price.
+                                    </AnimatedTypography>
+                                  </Grid>
+                               
+                                </Grid>
+                              </Grid>
+                            </AnimatedPaper>
+                        </Grid>
+                    </Grid>                   
+                
             </Grid>
 
 

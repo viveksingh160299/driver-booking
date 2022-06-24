@@ -768,6 +768,8 @@
 
 .home-paper-login-botton{
   height: 15vh !important;
+  width: 30vw !important;
+  margin-left: 65vw !important;
 }
 
 .home-paper-login-botton-grid{
@@ -808,7 +810,7 @@
 .home-main-typography{
    font-size: 8vmin !important;
    font-family: "Asap", sans-serif !important;
-   color: #f9fafb;
+   color: #224d78;
 }
 
 .home-main-video-container{
@@ -847,6 +849,12 @@
   margin-left: 5vw !important;
 }
 
+.home-main-video-content-container-1-1{
+  width:  40vw !important;
+  height: 38vh !important;
+}
+
+
 .home-main-video-content-item-1{
   width: 40vw !important;
   height: 38vh !important;
@@ -863,7 +871,7 @@
   height: 38vh !important;
   margin-top: 0vw !important;
   margin-bottom: 2vw !important;
-  margin-right: 7vw !important;
+  margin-right: 5vw !important;
 }
 
 .home-main-video-item-2{
@@ -885,7 +893,7 @@
   height: 38vh !important;
   margin-top: -0.2vw !important;
   margin-bottom: 1.5vw !important;
-  margin-right: 5vw !important;
+  margin-right: 7vw !important;
 }
 
 .home-main-video-content-item-2{
@@ -900,10 +908,10 @@
 }
 
 .home-main-video-content-typography{
-  font-size: 4vmin !important;
+  font-size: calc(4px + 2.5vmin) !important;
   font-family: "Asap", sans-serif !important;
   color: #f9fafb;
-  margin: 4vh 5vw 4vh 5vw !important;
+  margin: 1vh 5vw 0vh 5vw !important;
 }
 
 .background-image{
@@ -911,4 +919,151 @@
   background-repeat: no-repeat;
   background-attachment: fixed; 
   background-size: 100vw 100vh !important;
+}
+
+
+
+.driver-icon{
+  background-image: url('./utils/driver-icon.png');
+  background-repeat: no-repeat;
+  background-size: 11vh 11vh !important;
+  width: 11vh !important;
+  height: 11vh !important;
+  margin-left: -112vw !important;
+  margin-top: -4vh !important;
+}
+
+.booking-icon{
+  background-image: url('./utils/booking-icon.png');
+  background-repeat: no-repeat;
+  background-size: 11vh 11vh !important;
+  width: 11vh !important;
+  height: 11vh !important;
+  margin-left: -112vw !important;
+  margin-top: 5vh !important;
+  z-index: 2 !important;
+}
+
+@media screen and (max-aspect-ratio: 5/6){
+
+  .home-paper-login-botton{
+    width: 45vw !important;
+    margin-left: 50vw !important;
+  }
+  
+  .home-paper-login-botton-grid{
+    width: 22.5vw !important;
+  }
+  
+
+  .AnimatedBootstrapButton{
+    width: 17vw !important;
+    height: 4vh !important;
+    font-size: 1.5vw !important;
+  }
+
+  .nav-button-separator{
+    width: 0.4vw !important;
+    height: 4vh !important;
+  }
+
+  .home-main-body{
+    margin-top: 10vh !important;
+  }
+
+  .home-main-video-container{
+    margin-top: 10vh !important;
+    height: 60vh !important;
+    margin-bottom: 8vh !important;
+  }
+
+  .home-main-video-container-1{
+    width:  80vw !important;
+    margin-left: 10vw !important;
+    height: 30vh !important;
+  }
+  
+  .home-main-video-item-1{
+    width: 80vw !important;
+    height: 30vh !important;
+  }
+  
+  .home-video-1{
+    width: 80vw !important;
+    height: 30vh !important;
+  }
+
+  .home-main-video-content-container-1{
+    width:  80vw !important;
+    height: 30vh !important;
+    margin-top: 2vh !important;
+    margin-left: 10vw !important;
+  }
+  
+  .home-main-video-content-container-1-1{
+    width:  80vw !important;
+    height: 30vh !important;
+  }
+  
+  
+  .home-main-video-content-item-1{
+    width: 80vw !important;
+    height: 30vh !important;
+  }
+  
+  .home-main-video-content-1{
+    width: 80vw !important;
+    height: 30vh !important;
+  }
+  
+
+  .home-main-video-container-2{
+    width:  80vw !important;
+    height: 30vh !important;
+    margin-right: 10vw !important;
+  }
+  
+  .home-main-video-item-2{
+    width: 80vw !important;
+    height: 30vh !important;
+  }
+  
+  .home-video-2{
+    width: 80vw !important;
+    height: 30vh !important;
+  }
+  
+  .home-main-video-content-container-2{
+    width:  80vw !important;
+    height: 30vh !important;
+    margin-right: 10vw !important;
+    margin-top: 2vh !important;
+  }
+  
+  .home-main-video-content-item-2{
+    width: 80vw !important;
+    height: 30vh !important;
+  }
+  
+  .home-main-video-content-2{
+    width: 80vw !important;
+    height: 30vh !important;
+  }
+
+  .driver-icon{
+    background-size: 7vh 7vh !important;
+    width: 7vh !important;
+    height: 7vh !important;
+    margin-left: -75vw !important;
+    margin-top: 0vh !important;
+  }
+
+  .booking-icon{
+    background-size: 7vh 7vh !important;
+    width: 7vh !important;
+    height: 7vh !important;
+    margin-left: -75vw !important;
+    margin-top: -4vh !important;
+    z-index: 2 !important;
+  }
 }
