@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
 import MySubmitButton from './MyButtons/MySubmitbutton'
 import {useNavigate} from "react-router-dom";
-import './Login.css';
+import './Style.css';
 import { Paper } from '@mui/material';
 import { animated, useSpring } from "react-spring";
 import background_home_1 from './utils/background_home_1.mp4';

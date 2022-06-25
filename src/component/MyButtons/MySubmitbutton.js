@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { animated, useSpring } from "react-spring";
-import '../Login.css';
+import '../Style.css';
 
 const BootstrapButton = styled(Button)({
   boxShadow: 'none',

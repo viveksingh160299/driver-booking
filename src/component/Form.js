@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login.css';
+import './Style.css';
 import {Login} from './Login';
 import {Signup} from './Signup';
 import Grid from '@mui/material/Grid';
