@@ -1,4 +1,4 @@
-import {React} from 'react';
+import {React, useState} from 'react';
 import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
 import MySubmitButton from './MyButtons/MySubmitbutton'
@@ -14,6 +14,9 @@ export function Home(){
     const AnimatedPaper = animated(Paper);
     const AnimatedTypography = animated(Typography);
     const navigate = useNavigate();
+
+    const [revealelement1, setRevealElement1] = useState(0);
+    const [revealelement2, setRevealElement2] = useState(0);
 
     const springProps1 = useSpring({
         loop: { reverse: true },
@@ -69,17 +72,29 @@ export function Home(){
         config: { duration: 2000 }
       });   
 
-    const springPropsVideo1 = useSpring({
-        from: { x: '-80vh', opacity: 0 },
-        to: { x: '0vh', opacity: 1 },
+    const springPropsVideo1_1 = useSpring({
+        opacity: revealelement1 ? 1 : 0,
+        y: revealelement1 ? '0vh' : '13vh',
         config: { duration: 1000 }
       });
 
-    const springPropsVideo2 = useSpring({
-        from: { x: '80vh', opacity: 0 },
-        to: { x: '0vh', opacity: 1 },
+    const springPropsVideo2_1 = useSpring({
+        opacity: revealelement1 ? 1 : 0,
+        y: revealelement1 ? '0vh' : '13vh',
         config: { duration: 1000 }
       });  
+
+      const springPropsVideo1_2 = useSpring({
+        opacity: revealelement2 ? 1 : 0,
+        y: revealelement2 ? '0vh' : '13vh',
+        config: { duration: 1000 }
+      });
+
+    const springPropsVideo2_2 = useSpring({
+        opacity: revealelement2 ? 1 : 0,
+        y: revealelement2 ? '0vh' : '13vh',
+        config: { duration: 1000 }
+      });   
 
     const springPropsMain = useSpring({
         loop: { reverse: true },
@@ -174,6 +189,47 @@ export function Home(){
         delay: 3000,
       });
 
+
+    const reveal = () => {
+
+        var reveals1 = document.querySelectorAll(".reveal1");
+      
+        for (var i = 0; i < reveals1.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals1[i].getBoundingClientRect().top;
+      
+          if ( (elementTop/windowHeight) <= 0.6) {
+            if( revealelement1 == 0){
+              setRevealElement1(1);
+            }
+          } else {
+            if( revealelement1 == 1){
+              setRevealElement1(0);
+            }
+          }
+        }
+
+        var reveals2 = document.querySelectorAll(".reveal2");
+      
+        for (var i = 0; i < reveals2.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals2[i].getBoundingClientRect().top;
+      
+          if ( (elementTop/windowHeight) <= 0.6) {
+            if( revealelement2 == 0){
+              setRevealElement2(1);
+            }
+          } else {
+            if( revealelement2 == 1){
+              setRevealElement2(0);
+            }
+          }
+        }
+
+      }
+
+    window.addEventListener("scroll", reveal);  
+
     return (
 
       <Grid container direction="row" justifyContent="center" alignItems="center" >
@@ -259,17 +315,17 @@ export function Home(){
 
 
             <Grid container direction="row" justifyContent="flex-start" alignItems="center" className='home-main-video-container'>
-                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-container-1' >
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-container-1 reveal1' >
                         <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-item-1'>
-                            <animated.video autoPlay loop muted style={{...springPropsVideo1}} className='home-video-1'>
+                            <animated.video autoPlay loop muted style={{...springPropsVideo1_1}} className='home-video-1'>
                                 <source src={background_home_1} type="video/mp4" />
                             </animated.video>
                         </Grid>
                     </Grid>
 
-                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-1' >
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-1 reveal1' >
                         <Grid  container item direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-item-1'>
-                            <AnimatedPaper elevation={24} style={{...springPropsVideo2}} className='home-main-video-content-1'>
+                            <AnimatedPaper elevation={24} style={{...springPropsVideo2_1}} className='home-main-video-content-1'>
                               <Grid container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-container-1-1' >
                                 
                                 <Grid container item direction="row" justifyContent="flex-start" alignItems="center" >                        
@@ -296,17 +352,17 @@ export function Home(){
             
             <Grid container direction="row" justifyContent="flex-end" alignItems="center" className='home-main-video-container'>
                  
-                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-container-2' >
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-container-2 reveal2' >
                         <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-item-2'>
-                            <animated.video autoPlay loop muted style={{...springPropsVideo1}} className='home-video-2'>
+                            <animated.video autoPlay loop muted style={{...springPropsVideo1_2}} className='home-video-2'>
                                 <source src={background_home_2} type="video/mp4" />
                             </animated.video>
                         </Grid>
                     </Grid>
                  
-                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-2' >
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-2 reveal2' >
                         <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-item-2'>
-                            <AnimatedPaper elevation={24} style={{...springPropsVideo2}} className='home-main-video-content-2'>
+                            <AnimatedPaper elevation={24} style={{...springPropsVideo2_2}} className='home-main-video-content-2'>
                               <Grid container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-container-1-1' >
                                 
                                 <Grid container item direction="row" justifyContent="flex-start" alignItems="center" >                        
