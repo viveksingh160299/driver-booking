@@ -17,6 +17,8 @@ export function Home(){
 
     const [revealelement1, setRevealElement1] = useState(0);
     const [revealelement2, setRevealElement2] = useState(0);
+    const [revealelement3, setRevealElement3] = useState(0);
+    const [revealelement4, setRevealElement4] = useState(0);
 
     const springProps1 = useSpring({
         loop: { reverse: true },
@@ -75,25 +77,25 @@ export function Home(){
     const springPropsVideo1_1 = useSpring({
         opacity: revealelement1 ? 1 : 0,
         y: revealelement1 ? '0vh' : '13vh',
-        config: { duration: 1000 }
+        config: { duration: 300 }
       });
 
     const springPropsVideo2_1 = useSpring({
-        opacity: revealelement1 ? 1 : 0,
-        y: revealelement1 ? '0vh' : '13vh',
-        config: { duration: 1000 }
+        opacity: revealelement2 ? 1 : 0,
+        y: revealelement2 ? '0vh' : '13vh',
+        config: { duration: 300 }
       });  
 
       const springPropsVideo1_2 = useSpring({
-        opacity: revealelement2 ? 1 : 0,
-        y: revealelement2 ? '0vh' : '13vh',
-        config: { duration: 1000 }
+        opacity: revealelement3 ? 1 : 0,
+        y: revealelement3 ? '0vh' : '13vh',
+        config: { duration: 300 }
       });
 
     const springPropsVideo2_2 = useSpring({
-        opacity: revealelement2 ? 1 : 0,
-        y: revealelement2 ? '0vh' : '13vh',
-        config: { duration: 1000 }
+        opacity: revealelement4 ? 1 : 0,
+        y: revealelement4 ? '0vh' : '13vh',
+        config: { duration: 300 }
       });   
 
     const springPropsMain = useSpring({
@@ -193,37 +195,57 @@ export function Home(){
     const reveal = () => {
 
         var reveals1 = document.querySelectorAll(".reveal1");
+        var reveals2 = document.querySelectorAll(".reveal2");
+        var reveals3 = document.querySelectorAll(".reveal3");
+        var reveals4 = document.querySelectorAll(".reveal4");
+        var windowHeight = window.innerHeight;
+          
+        var elementTop = reveals1[0].getBoundingClientRect().top;
       
-        for (var i = 0; i < reveals1.length; i++) {
-          var windowHeight = window.innerHeight;
-          var elementTop = reveals1[i].getBoundingClientRect().top;
-      
-          if ( (elementTop/windowHeight) <= 0.6) {
+        if ( (elementTop/windowHeight) <= 0.7) {
             if( revealelement1 == 0){
               setRevealElement1(1);
             }
-          } else {
+        } else {
             if( revealelement1 == 1){
               setRevealElement1(0);
             }
-          }
         }
-
-        var reveals2 = document.querySelectorAll(".reveal2");
+        
+        var elementTop = reveals2[0].getBoundingClientRect().top;
       
-        for (var i = 0; i < reveals2.length; i++) {
-          var windowHeight = window.innerHeight;
-          var elementTop = reveals2[i].getBoundingClientRect().top;
-      
-          if ( (elementTop/windowHeight) <= 0.6) {
+        if ( (elementTop/windowHeight) <= 0.7) {
             if( revealelement2 == 0){
               setRevealElement2(1);
             }
-          } else {
+        } else {
             if( revealelement2 == 1){
               setRevealElement2(0);
             }
-          }
+        }
+
+        var elementTop = reveals3[0].getBoundingClientRect().top;
+      
+        if ( (elementTop/windowHeight) <= 0.7) {
+            if( revealelement3 == 0){
+              setRevealElement3(1);
+            }
+        } else {
+            if( revealelement3 == 1){
+              setRevealElement3(0);
+            }
+        }
+
+        var elementTop = reveals4[0].getBoundingClientRect().top;
+      
+        if ( (elementTop/windowHeight) <= 0.7) {
+            if( revealelement4 == 0){
+              setRevealElement4(1);
+            }
+        } else {
+            if( revealelement4 == 1){
+              setRevealElement4(0);
+            }
         }
 
       }
@@ -323,7 +345,7 @@ export function Home(){
                         </Grid>
                     </Grid>
 
-                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-1 reveal1' >
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-1 reveal2' >
                         <Grid  container item direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-item-1'>
                             <AnimatedPaper elevation={24} style={{...springPropsVideo2_1}} className='home-main-video-content-1'>
                               <Grid container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-container-1-1' >
@@ -352,7 +374,7 @@ export function Home(){
             
             <Grid container direction="row" justifyContent="flex-end" alignItems="center" className='home-main-video-container'>
                  
-                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-container-2 reveal2' >
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-container-2 reveal3' >
                         <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-item-2'>
                             <animated.video autoPlay loop muted style={{...springPropsVideo1_2}} className='home-video-2'>
                                 <source src={background_home_2} type="video/mp4" />
@@ -360,7 +382,7 @@ export function Home(){
                         </Grid>
                     </Grid>
                  
-                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-2 reveal2' >
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className='home-main-video-content-container-2 reveal4' >
                         <Grid item container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-item-2'>
                             <AnimatedPaper elevation={24} style={{...springPropsVideo2_2}} className='home-main-video-content-2'>
                               <Grid container direction="row" justifyContent="center" alignItems="center" className='home-main-video-content-container-1-1' >
