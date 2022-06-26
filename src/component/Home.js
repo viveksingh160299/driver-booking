@@ -70,7 +70,7 @@ export function Home(){
       const springPropsTypography3 = useSpring({
         loop: { reverse: true },
         from: {color: '#000000' },
-        to: { color: '#777777' },
+        to: { color: '#333333' },
         config: { duration: 2000 }
       });   
 
