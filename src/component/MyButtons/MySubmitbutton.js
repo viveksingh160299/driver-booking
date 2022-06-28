@@ -29,17 +29,17 @@ const BootstrapButton = styled(Button)({
     '"Segoe UI Symbol"',
   ].join(','),
   '&:hover': {
-    backgroundColor: '#ffa500',
-    borderColor: '#ee7600',
+    backgroundColor: '#0cebeb',
+    borderColor: '#0cecec',
     boxShadow: 'none',
   },
   '&:active': {
     boxShadow: 'none',
-    backgroundColor: '#ff4500',
-    borderColor: '#ee7600',
+    backgroundColor: '#b0fc38',
+    borderColor: '#b0fc38',
   },
   '&:focus': {
-    boxShadow: '0 0 0 0.2rem #ffa500',
+    boxShadow: '0 0 0 0.2rem #b0fc38',
   },
 });
 

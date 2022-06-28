@@ -41,13 +41,6 @@ export function Home(){
         config: { duration: 1900 }
       });  
 
-    const springPropsButton = useSpring({
-        loop: { reverse: true },
-        from: { border: '0vmin solid', borderColor: '#0cebeb' },
-        to: { border: '0.5vmin solid', borderColor: '#0cebeb' },
-        config: { duration: 500 }
-      });  
-
     const springPropsTypography = useSpring({
         loop: { reverse: true },
         from: {color: '#ffffff' },
@@ -97,12 +90,6 @@ export function Home(){
         y: revealelement4 ? '0vh' : '13vh',
         config: { duration: 300 }
       });   
-
-    const springPropsMain = useSpring({
-        loop: { reverse: true },
-        from: { x: '-0.2vw' },
-        to: { x: '2vw' },
-      }); 
 
     const springPropsGridBottomBorder = useSpring({
         
@@ -211,6 +198,7 @@ export function Home(){
               setRevealElement1(0);
             }
         }
+
         
         var elementTop = reveals2[0].getBoundingClientRect().top;
       
@@ -272,13 +260,13 @@ export function Home(){
                         <Grid item container direction="row" justifyContent="center" alignItems="center" className='booking-icon' />
                         
                         <Grid onClick={NavigateToLogin} className='home-paper-login-botton-grid'  container item  justifyContent="center" alignItems="center" > 
-                            <animated.div  style={{...springPropsButton}}><MySubmitButton name="Login / Signup" /></animated.div>
+                            <MySubmitButton name="Login / Signup" />
                         </Grid>
 
                         <Grid className='nav-button-separator' container item style={{width:'0.2vw', height:'5.5vh', backgroundColor: 'white'}}  justifyContent="center" alignItems="center"></Grid>
 
                         <Grid onClick={NavigateToDashboard} className='home-paper-login-botton-grid' container item justifyContent="center" alignItems="center">
-                            <animated.div style={springPropsButton}><MySubmitButton name="Dashboard"/></animated.div>
+                            <MySubmitButton name="Dashboard"/>
                         </Grid>
 
                     </Grid>
@@ -300,8 +288,8 @@ export function Home(){
                 <AnimatedPaper elevation={24} style={springProps2} className='home-side-bars-paper' />
                 <AnimatedPaper elevation={24} style={springProps3} className='home-side-bars-paper' />
            
-                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',width:'0.5vh',...springPropsGridLeftBorder,...springPropsMain}}></AnimatedPaper>
-                <AnimatedPaper style={springPropsMain} elevation={24} className='home-main-body-paper'>
+                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',width:'0.5vh',...springPropsGridLeftBorder}}></AnimatedPaper>
+                <AnimatedPaper elevation={24} className='home-main-body-paper'>
                     
                     <Grid item container direction="row" justifyContent="center" alignItems="center">
                             <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',height:'0.5vh',...springPropsGridTopBorder}}></AnimatedPaper>
@@ -325,7 +313,7 @@ export function Home(){
                             <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',height:'0.5vh',...springPropsGridBottomBorder}}></AnimatedPaper>
                     </Grid>
                 </AnimatedPaper>
-                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',width:'0.5vh',...springPropsGridRightBorder,...springPropsMain}}></AnimatedPaper>
+                <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',width:'0.5vh',...springPropsGridRightBorder}}></AnimatedPaper>
             
                 <AnimatedPaper elevation={24} style={{marginLeft: '3.9vw', ...springProps1}} className='home-side-bars-paper' />
                 <AnimatedPaper elevation={24} style={springProps2} className='home-side-bars-paper' />
