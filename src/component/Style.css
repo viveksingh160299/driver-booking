@@ -5,20 +5,15 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+  font-size: 1.875rem !important;
+  text-transform: none !important;
+  color: #f9fafb !important;
+  width: 21.6vw !important;
+  height: 10vh !important;
+  font-family: Helvetica, sans-serif !important;
+  border-radius: 2px !important;
+}
 
 
 /*------------------------------------------------------Frosted Glass Design-------------------------------------------------------------*/
@@ -424,15 +419,6 @@
 
 
 
-.css-1e6y48t-MuiButtonBase-root-MuiButton-root{
-  font-size: 1.875rem !important;
-  text-transform: none !important;
-  color: #f9fafb !important;
-  width: 21.6vw !important;
-  height: 10vh !important;
-  font-family: Helvetica, sans-serif !important;
-  border-radius: 2px !important;
-}
 
 @media screen and (max-width: 1500px){
      
@@ -1086,4 +1072,21 @@
     margin-top: -4vh !important;
     z-index: 2 !important;
   }
+}
+
+
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+  font-size: 1.875rem !important;
+  text-transform: none !important;
+  color: #f9fafb !important;
+  width: 21.6vw !important;
+  height: 10vh !important;
+  font-family: Helvetica, sans-serif !important;
+  border-radius: 2px !important;
 }
