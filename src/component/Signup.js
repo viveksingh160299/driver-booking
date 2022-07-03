@@ -213,7 +213,9 @@ const inputProps = {
                       required
                       inputProps={{
                         style:{
-                          height: "45px"
+                          height: "45px",
+                          backgroundColor: "#ffffff",
+                          borderRadius: '5px',
                         }
                       }}
                      />
@@ -232,7 +234,9 @@ const inputProps = {
                       required
                       inputProps={{
                         style:{
-                          height: "45px"
+                          height: "45px",
+                          backgroundColor: "#ffffff",
+                          borderRadius: '5px',
                         }
                       }}
                      />
@@ -249,7 +253,9 @@ const inputProps = {
                       variant="outlined"
                       inputProps={{
                         style:{
-                          height: "45px"
+                          height: "45px",
+                          backgroundColor: "#ffffff",
+                          borderRadius: '5px',
                         }
                       }}
                       required
@@ -279,7 +285,9 @@ const inputProps = {
                         label="New Password"
                         inputProps={{
                           style:{
-                            height: "45px"
+                            height: "45px",
+                            backgroundColor: "#ffffff",
+                            borderRadius: '5px',
                           }
                         }}
                         />
@@ -310,7 +318,9 @@ const inputProps = {
                         label="Re-Enter New Password"
                         inputProps={{
                           style:{
-                            height: "45px"
+                            height: "45px",
+                            backgroundColor: "#ffffff",
+                            borderRadius: '5px',
                           }
                         }}
                         />

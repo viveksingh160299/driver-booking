@@ -38,10 +38,16 @@ const handleIsSignup = () => {
              <div className={values.islogin?"card frosted-card text-white":"card frosted-card frosted-card-register  text-white"}>
                <div className="card-body">
                   <Grid container>
-                     <Grid item xs={12}>
-                     <ButtonGroup variant="text" aria-label="text button group">
-                         <Button className={values.islogin?"button-color":"button-size"} onClick={handleIsLogin}>Login</Button>
-                         <Button className={values.islogin?"button-size":"button-color"} onClick={handleIsSignup}>Register</Button>
+                     <Grid container item direction="row" justifyContent="center" alignItems="center" xs={12}>
+                     <ButtonGroup variant="text" aria-label="text button group" className='button-group'>
+                        <Grid container  direction="row" justifyContent="center" alignItems="center" xs={12} sm={12} md={12} lg={12}>
+                          <Grid onClick={handleIsLogin} item container justifyContent="center" alignItems="center" className={values.islogin?"button-group-item":""} xs={6} sm={6} md={6} lg={6}>
+                            <Button className={values.islogin?"button-color":"button-size"} >Login</Button>
+                          </Grid>
+                          <Grid onClick={handleIsSignup} item container justifyContent="center" alignItems="center" className={values.islogin?"":"button-group-item"} xs={6} sm={6} md={6} lg={6}>
+                            <Button className={values.islogin?"button-size":"button-color"} >Register</Button>
+                          </Grid>
+                        </Grid>
                      </ButtonGroup>
                      </Grid>
                   </Grid>   

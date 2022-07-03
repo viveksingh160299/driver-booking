@@ -158,7 +158,9 @@ const inputProps = {
                       required
                       inputProps={{
                         style:{
-                          height: "45px"
+                          height: "45px",
+                          backgroundColor: "#ffffff",
+                          borderRadius: '5px',
                         }
                       }}
                      />
@@ -173,6 +175,14 @@ const inputProps = {
                         type={values.showPassword ? 'text' : 'password'}
                         value={values.password}
                         onChange={handleChange('password')}
+                        inputProps={{
+                          style:{
+                            height: "45px",
+                            backgroundColor: "#ffffff",
+                            borderRadius: '5px',
+                          }
+                        }}
+
                         endAdornment={
                         <InputAdornment position="end">
                            <IconButton
@@ -186,11 +196,6 @@ const inputProps = {
                         </InputAdornment>
                         }
                         label="Password"
-                        inputProps={{
-                          style:{
-                            height: "45px"
-                          }
-                        }}
                         />
                      </FormControl>
                   </Grid>
