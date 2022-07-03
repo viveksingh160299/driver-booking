@@ -284,7 +284,7 @@ export function Home(){
 
 
             <Grid container  direction="row" justifyContent="flex-start" alignItems="center" xs={12} className='home-main-body' >
-                <AnimatedPaper elevation={24} style={{marginLeft: '6vw', ...springProps1}} className='home-side-bars-paper' />
+                <AnimatedPaper elevation={24} style={{marginLeft: '7.5vw', ...springProps1}} className='home-side-bars-paper' />
                 <AnimatedPaper elevation={24} style={springProps2} className='home-side-bars-paper' />
                 <AnimatedPaper elevation={24} style={springProps3} className='home-side-bars-paper' />
            
@@ -315,7 +315,7 @@ export function Home(){
                 </AnimatedPaper>
                 <AnimatedPaper style={{borderRadius:'0',backgroundColor:'#1b1e23',width:'0.5vh',...springPropsGridRightBorder}}></AnimatedPaper>
             
-                <AnimatedPaper elevation={24} style={{marginLeft: '3.9vw', ...springProps1}} className='home-side-bars-paper' />
+                <AnimatedPaper elevation={24} style={{marginLeft: '1vw', ...springProps1}} className='home-side-bars-paper' />
                 <AnimatedPaper elevation={24} style={springProps2} className='home-side-bars-paper' />
                 <AnimatedPaper elevation={24} style={springProps3} className='home-side-bars-paper' />
             </Grid>
