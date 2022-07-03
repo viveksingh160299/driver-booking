@@ -1,3 +1,26 @@
+
+.css-14ym78x-MuiButtonGroup-root .MuiButtonGroup-grouped:not(:last-of-type) {
+  border-right: 0px solid rgba(255, 255, 255, 0.23) !important;
+  border-color: #f9fafb !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*------------------------------------------------------Frosted Glass Design-------------------------------------------------------------*/
 
 .outer {
@@ -400,10 +423,6 @@
 }
 
 
-.css-14ym78x-MuiButtonGroup-root .MuiButtonGroup-grouped:not(:last-of-type) {
-    border-right: 0px solid rgba(255, 255, 255, 0.23) !important;
-    border-color: #f9fafb !important;
-}
 
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
   font-size: 1.875rem !important;
